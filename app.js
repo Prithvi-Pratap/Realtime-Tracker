@@ -8,13 +8,11 @@ const socketio = require("socket.io");
 const server = http.createServer(app);
 const io = socketio(server);
 
-// Set view engine to EJS
 app.set("view engine", "ejs");
 
-// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
 
-// Socket.IO connection handler
+
 io.on("connection", function (socket) {
 
   socket.on("send-location", function (data) {
